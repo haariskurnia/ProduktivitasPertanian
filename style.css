@@ -1,0 +1,274 @@
+/* --- Variables & Reset --- */
+:root {
+    /* Dark Mode (Default) */
+    --bg-primary: #161d2b;
+    --bg-secondary: #1e293b;
+    --text-primary: #ffffff;
+    --text-secondary: #94a3b8;
+    --accent: #fbbf24; 
+    --accent-hover: #d97706;
+    --success: #65a30d;
+    --card-bg: #283246;
+    --border-color: #334155;
+    --orange-bg: #9a2810;
+    --policy-bg: #132a2a;
+    --policy-border: #0f4d38;
+    --policy-text: #ffffff;
+    --policy-icon-bg: #84cc16;
+}
+
+.light-mode {
+    --bg-primary: #f1f5f9;
+    --bg-secondary: #ffffff;
+    --text-primary: #0f172a;
+    --text-secondary: #475569;
+    --card-bg: #ffffff;
+    --border-color: #e2e8f0;
+    --policy-bg: #dcfce7;
+    --policy-border: #86efac;
+    --policy-text: #14532d;
+    --policy-icon-bg: #15803d;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
+
+/* --- BODY DENGAN BACKGROUND MODERN (DOT GRID + GLOW) --- */
+body {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    transition: background-color 0.3s, color 0.3s;
+    overflow-x: hidden;
+    position: relative; /* Penting untuk pattern */
+    
+    /* Efek Glow Halus di Background (Hijau & Kuning) */
+    background-image: 
+        radial-gradient(circle at 10% 20%, rgba(101, 163, 13, 0.15) 0%, transparent 40%),
+        radial-gradient(circle at 90% 20%, rgba(251, 191, 36, 0.1) 0%, transparent 40%);
+    background-attachment: fixed;
+}
+
+/* Pola Titik-Titik (Tech Grid) */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-image: radial-gradient(var(--text-secondary) 1px, transparent 1px);
+    background-size: 40px 40px;
+    opacity: 0.1; 
+    z-index: -1;
+    pointer-events: none;
+}
+
+/* --- ANIMASI SCROLL (REVEAL) --- */
+.reveal {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.8s ease-out;
+}
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* --- NAVBAR (GLASSMORPHISM) --- */
+.navbar {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 1rem 5%;
+    
+    /* Efek Kaca */
+    background: rgba(22, 29, 43, 0.8);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(101, 163, 13, 0.3);
+    
+    position: sticky; top: 0; z-index: 1000;
+    transition: background 0.3s;
+}
+
+.light-mode .navbar {
+    background: rgba(241, 245, 249, 0.8);
+    border-bottom: 1px solid rgba(101, 163, 13, 0.2);
+}
+
+.logo { font-size: 1.5rem; font-weight: 700; }
+.logo span { color: var(--accent); }
+.nav-links a {
+    color: var(--text-secondary); text-decoration: none; margin-left: 2rem;
+    font-weight: 500; transition: color 0.3s; position: relative;
+}
+.nav-links a:hover { color: var(--text-primary); }
+.nav-links a::after {
+    content: ''; position: absolute; width: 0; height: 2px;
+    bottom: -5px; left: 0; background-color: var(--accent);
+    transition: width 0.3s;
+}
+.nav-links a:hover::after { width: 100%; }
+
+.theme-btn {
+    background: transparent; border: 1px solid var(--text-secondary);
+    color: var(--text-secondary); padding: 0.5rem; border-radius: 5px;
+    cursor: pointer; margin-left: 2rem; transition: all 0.3s;
+}
+.theme-btn:hover { border-color: var(--accent); color: var(--accent); }
+
+/* --- HERO SECTION --- */
+.hero { text-align: center; padding: 5rem 10%; min-height: 90vh; display: flex; flex-direction: column; justify-content: center; align-items: center; }
+.badge { background-color: #3f1e1e; color: #f87171; padding: 0.3rem 1rem; border-radius: 20px; font-size: 0.8rem; font-weight: 700; letter-spacing: 1px; margin-bottom: 1rem; display: inline-block; }
+.hero h1 { font-size: 3.5rem; margin: 1.5rem 0; }
+.hero .highlight { color: #bef264; text-decoration: underline; text-decoration-color: var(--accent); text-decoration-thickness: 4px; }
+.hero-desc { color: var(--text-secondary); max-width: 700px; margin: 0 auto 2rem auto; line-height: 1.6; }
+
+.cta-buttons { display: flex; justify-content: center; gap: 1rem; margin-bottom: 4rem; }
+.btn { padding: 0.8rem 1.5rem; border-radius: 6px; text-decoration: none; font-weight: 600; transition: transform 0.3s, box-shadow 0.3s; }
+.btn:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
+.btn-primary { background-color: #65a30d; color: white; }
+.btn-outline { border: 1px solid var(--success); color: var(--success); }
+.btn-outline:hover { background-color: var(--success); color: white; }
+
+.stats-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; width: 100%; max-width: 1200px; }
+
+/* Style Kartu agar lebih Pop-Up */
+.stat-card {
+    background-color: var(--card-bg); 
+    padding: 2rem; border-radius: 12px;
+    text-align: left; position: relative;
+    box-shadow: 0 10px 30px -10px rgba(0,0,0,0.3);
+    border: 1px solid rgba(255,255,255,0.05);
+    border-bottom: 4px solid transparent; 
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.stat-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px -10px rgba(0,0,0,0.5); }
+.stat-card:first-child { border-bottom-color: var(--accent); }
+.stat-card:nth-child(2) { border-bottom-color: var(--success); }
+.stat-card:nth-child(3) { border-bottom-color: #ef4444; }
+.stat-card h3 { font-size: 2rem; margin-bottom: 0.5rem; }
+.green-text { color: #84cc16; }
+.orange-text { color: #f97316; }
+.stat-card p { color: var(--text-secondary); font-size: 0.8rem; letter-spacing: 1px; }
+.icon-bg { position: absolute; right: 20px; top: 50%; transform: translateY(-50%); font-size: 3rem; opacity: 0.1; transition: opacity 0.3s; }
+.stat-card:hover .icon-bg { opacity: 0.2; }
+
+/* --- DASHBOARD SECTION --- */
+.dashboard-section { padding: 4rem 5%; text-align: center; }
+.dashboard-frame {
+    border: 2px solid var(--success); border-radius: 12px; width: 100%; aspect-ratio: 16 / 9;
+    margin: 2rem auto; display: flex; justify-content: center; align-items: center;
+    background-color: var(--bg-secondary); overflow: hidden; max-width: 1200px;
+    box-shadow: 0 0 20px rgba(101, 163, 13, 0.2); 
+}
+.dashboard-frame iframe { width: 100%; height: 100%; border: none; }
+.frame-placeholder { color: var(--text-secondary); }
+
+.legend-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; max-width: 1200px; margin: 0 auto; }
+.legend-card {
+    background-color: var(--card-bg); padding: 1rem; border-radius: 8px;
+    display: flex; align-items: center; gap: 1rem; text-align: left;
+    transition: transform 0.3s; box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+.legend-card:hover { transform: scale(1.02); }
+.legend-card.red { border-left: 4px solid #ef4444; }
+.legend-card.green { border-left: 4px solid var(--success); }
+.legend-card.yellow { border-left: 4px solid var(--accent); }
+.legend-card.orange { border-left: 4px solid #f97316; }
+.legend-card .icon { background: rgba(255,255,255,0.1); padding: 10px; border-radius: 50%; }
+
+/* --- ANALYSIS SECTION --- */
+.analysis-section { padding: 4rem 10%; text-align: center; }
+.underline { width: 60px; height: 4px; background-color: var(--accent); margin: 1rem auto 3rem auto; }
+.analysis-container { display: flex; flex-direction: column; gap: 1.5rem; max-width: 1000px; margin: 0 auto; }
+.analysis-card {
+    background-color: var(--card-bg); padding: 2rem; border-radius: 12px;
+    display: flex; align-items: flex-start; gap: 1.5rem; text-align: left;
+    transition: transform 0.3s; box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+.analysis-card:hover { transform: translateX(10px); border-left: 4px solid var(--accent); }
+.number-badge {
+    background-color: #ffe4b5; color: #78350f; width: 50px; height: 50px;
+    display: flex; justify-content: center; align-items: center; border-radius: 8px;
+    font-weight: 700; font-size: 1.2rem; flex-shrink: 0;
+}
+.policy-box {
+    background-color: var(--policy-bg); border: 1px solid var(--policy-border);
+    color: var(--policy-text); padding: 2rem; border-radius: 12px;
+    display: flex; gap: 1.5rem; align-items: flex-start; text-align: left;
+    transition: transform 0.3s; box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+.policy-box:hover { transform: scale(1.02); }
+.bulb-icon {
+    background-color: var(--policy-icon-bg); color: white; width: 50px; height: 50px;
+    display: flex; justify-content: center; align-items: center; border-radius: 50%;
+    font-size: 1.5rem; flex-shrink: 0;
+    animation: pulse 2s infinite; 
+}
+@keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(132, 204, 22, 0.4); } 70% { box-shadow: 0 0 0 10px rgba(132, 204, 22, 0); } 100% { box-shadow: 0 0 0 0 rgba(132, 204, 22, 0); } }
+
+/* --- METODOLOGI --- */
+.methodology-section { background-color: var(--orange-bg); padding: 4rem 10%; color: white; position: relative; z-index: 10;}
+.methodology-section h2 { text-align: center; font-size: 2rem; margin-bottom: 3rem; }
+.method-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; max-width: 1200px; margin: 0 auto; }
+.method-card {
+    background-color: rgba(255,255,255,0.1); padding: 2rem; border-radius: 12px;
+    border: 1px solid rgba(255,255,255,0.2); transition: background-color 0.3s;
+}
+.method-card:hover { background-color: rgba(255,255,255,0.2); }
+.method-card i { font-size: 1.5rem; margin-bottom: 1rem; color: var(--accent); }
+
+/* --- TEAM SECTION (Centered & Wide) --- */
+.team-section {
+    padding: 6rem 2%; 
+    display: flex; flex-direction: column; align-items: center; text-align: center;
+}
+.team-title { font-size: 2.5rem; margin-bottom: 5rem; font-weight: 700; }
+.team-grid {
+    display: flex; 
+    justify-content: center; /* CENTER */
+    gap: 5rem; /* Jarak lebar antar kartu */
+    width: 100%; max-width: 1200px;
+    flex-wrap: wrap; margin-bottom: 3rem;
+}
+.team-card {
+    display: flex; flex-direction: column; align-items: center;
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    min-width: 250px;
+}
+.team-card:hover { transform: translateY(-15px); }
+.avatar {
+    width: 160px; height: 160px; border-radius: 50%; background-color: #ccc;
+    margin-bottom: 1.5rem; border: 6px solid var(--success); 
+    overflow: hidden; background-size: cover; background-position: center;
+}
+.initials {
+    display: flex; justify-content: center; align-items: center;
+    font-size: 3.5rem; font-weight: 700; color: white;
+    background-color: #fbbf24; border-color: #fbbf24;
+}
+.red-avatar { background-color: #b91c1c; border-color: #b91c1c; }
+.team-card h3 { font-size: 1.4rem; margin-bottom: 0.2rem; color: var(--text-primary); }
+.nim { color: var(--success); font-size: 1rem; font-weight: 600; margin-bottom: 0.5rem; }
+.socials { margin-top: 1rem; }
+.socials a { 
+    color: var(--text-secondary); font-size: 1.8rem; margin: 0 15px; 
+    transition: all 0.3s; display: inline-block; 
+}
+.socials a:hover { color: var(--accent); transform: scale(1.2) rotate(10deg); }
+
+/* --- FOOTER (Terpisah) --- */
+.footer {
+    background-color: #0b0f16; 
+    padding: 4rem 10%; text-align: center;
+    color: var(--text-secondary); width: 100%;
+    border-top: 1px solid #1e293b; position: relative; z-index: 10;
+}
+.light-mode .footer {
+    background-color: #e2e8f0; border-top: 1px solid #cbd5e1;
+}
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+    .hero h1 { font-size: 2rem; }
+    .navbar { flex-direction: column; gap: 1rem; }
+    .nav-links { margin-left: 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; }
+    .dashboard-frame { height: 300px; aspect-ratio: auto; }
+    .team-grid { gap: 3rem; } /* Jarak tim lebih dekat di HP */
+}

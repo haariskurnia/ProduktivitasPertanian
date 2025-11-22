@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgriData2024 - Analisis Data Pertanian</title>
+    
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">AgriData<span>2024</span></div>
+        <div class="nav-links">
+            <a href="#home">Beranda</a>
+            <a href="#dashboard">Dashboard</a>
+            <a href="#analisis">Analisis</a>
+            <a href="#tim">Tim</a>
+            <button id="theme-toggle" class="theme-btn"><i class="fas fa-sun"></i></button>
+        </div>
+    </nav>
+
+    <header id="home" class="hero reveal">
+        <span class="badge">LAPORAN ANALISIS DATA</span>
+        <h1>Paradoks Subsidi & <span class="highlight">Produktivitas</span></h1>
+        <p class="hero-desc">
+            Analisis geospasial kinerja pertanian Indonesia 2024. Mengungkap mengapa 
+            subsidi tinggi tidak selalu menghasilkan panen melimpah di 38 Provinsi.
+        </p>
+        <div class="cta-buttons">
+            <a href="#dashboard" class="btn btn-primary"><i class="fas fa-map"></i> Lihat Peta Interaktif</a>
+            <a href="#analisis" class="btn btn-outline"><i class="fas fa-chart-line"></i> Temuan Kunci</a>
+        </div>
+
+        <div class="stats-container reveal">
+            <div class="stat-card">
+                <h3>38</h3>
+                <p>PROVINSI DIANALISIS</p>
+                <i class="fas fa-map-marker-alt icon-bg"></i>
+            </div>
+            <div class="stat-card">
+                <h3 class="green-text">5.100 Kg/Ha</h3>
+                <p>RATA-RATA NASIONAL</p>
+                <i class="fas fa-seedling icon-bg"></i>
+            </div>
+            <div class="stat-card">
+                <h3 class="orange-text">4 Kuadran</h3>
+                <p>STATUS WILAYAH</p>
+                <i class="fas fa-layer-group icon-bg"></i>
+            </div>
+        </div>
+    </header>
+
+    <section id="dashboard" class="dashboard-section reveal">
+        <div class="section-header">
+            <h2>Peta Persebaran Produktivitas</h2>
+            <p>Gunakan slicer di dalam dashboard untuk memfilter berdasarkan <strong>Tipe Area</strong> dan <strong>Kualitas Irigasi</strong>.</p>
+        </div>
+        
+        <div class="dashboard-frame">
+            <iframe title="DASHBOARD FIX FINAL ALHAMDULILLAH" width="1140" height="541.25" src="https://app.powerbi.com/reportEmbed?reportId=47b4f6db-7be7-4b7d-a4cf-837da373ca81&autoAuth=true&ctid=fedd5298-8e66-45f1-b321-fd38ad0ff722" frameborder="0" allowFullScreen="true"></iframe>
+        </div>
+
+        <div class="legend-grid reveal">
+            <div class="legend-card red">
+                <div class="icon"><i class="fas fa-exclamation-triangle"></i></div>
+                <div><h4>Problem</h4><small>Subsidi Tinggi, Hasil Rendah</small></div>
+            </div>
+            <div class="legend-card green">
+                <div class="icon"><i class="fas fa-check"></i></div>
+                <div><h4>Ideal</h4><small>Subsidi Tinggi, Hasil Tinggi</small></div>
+            </div>
+            <div class="legend-card yellow">
+                <div class="icon"><i class="fas fa-user-check"></i></div>
+                <div><h4>Mandiri</h4><small>Subsidi Rendah, Hasil Tinggi</small></div>
+            </div>
+            <div class="legend-card orange">
+                <div class="icon"><i class="fas fa-hourglass-half"></i></div>
+                <div><h4>Tertinggal</h4><small>Subsidi Rendah, Hasil Rendah</small></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="analisis" class="analysis-section reveal">
+        <h2>Analisis & Temuan Kunci</h2>
+        <div class="underline"></div>
+
+        <div class="analysis-container">
+            <div class="analysis-card reveal">
+                <div class="number-badge">1</div>
+                <div class="analysis-content">
+                    <h3>Alih Fungsi Lahan: Akar Masalah Urban</h3>
+                    <p>Provinsi kategori "Problem" didominasi desa bertipe <strong>Urban</strong>. Lahan subur terkonversi menjadi perumahan, menyisakan lahan marjinal.</p>
+                </div>
+            </div>
+
+            <div class="analysis-card reveal">
+                <div class="number-badge">2</div>
+                <div class="analysis-content">
+                    <h3>Infrastruktur Irigasi adalah 'Bottleneck'</h3>
+                    <p>Korelasi kuat antara produktivitas rendah dan irigasi buruk. Pupuk urea tidak berpengaruh signifikan tanpa air yang cukup.</p>
+                </div>
+            </div>
+
+            <div class="policy-box reveal">
+                <div class="bulb-icon"><i class="fas fa-lightbulb"></i></div>
+                <div>
+                    <h3>Rekomendasi Kebijakan</h3>
+                    <p>Pemerintah perlu mengalihkan fokus ke <strong>revitalisasi lahan tidur</strong> dan perbaikan irigasi di provinsi "Problem".</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="methodology-section reveal">
+        <h2>Metodologi & Data</h2>
+        <div class="method-grid">
+            <div class="method-card">
+                <i class="fas fa-database"></i>
+                <h4>Sumber Data</h4>
+                <p>Dataset sintetis 2024 yang dimodelkan berdasarkan parameter riil ekonomi pertanian.</p>
+            </div>
+            <div class="method-card">
+                <i class="fas fa-calculator"></i>
+                <h4>Definisi Metrik</h4>
+                <p>Produktivitas (Kg/Ha) dan Rasio % Subsidi Pupuk.</p>
+            </div>
+            <div class="method-card">
+                <i class="fas fa-laptop-code"></i>
+                <h4>Tech Stack</h4>
+                <p>Power BI (DAX), Shapemap Visual, dan Tailwind CSS.</p>
+            </div>
+        </div>
+    </section>
+
+<section id="tim" class="team-section reveal">
+        <h2 class="team-title">Tim Peneliti</h2>
+        
+        <div class="team-grid">
+            
+            <div class="team-card">
+                <div class="avatar" style="background-image: url('haaris.JPG');"></div>
+                <h3>Haaris Fathurrahman PK</h3>
+                <span class="nim">F3401241055</span>
+                <p>Lead Data Analyst</p>
+                <div class="socials">
+                    <a href="https://www.linkedin.com/in/haarfath/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://instagram.com/haarfath" target="_blank"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+
+            <div class="team-card">
+                <div class="avatar" style="background-image: url('haaris.JPG');"></div>
+                <h3>Aisyah M Nazarin</h3>
+                <span class="nim">F3401241028</span>
+                <p>Researcher</p>
+                <div class="socials">
+                    <a href="https://www.linkedin.com/in/haarfath/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://instagram.com/dianazzarin" target="_blank"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+
+            <div class="team-card">
+                <div class="avatar" style="background-image: url('haaris.JPG');"></div>
+                <h3>M Damara Fairuz R</h3>
+                <span class="nim">F3401241015</span>
+                <p>Support</p>
+                <div class="socials">
+                    <a href="https://www.linkedin.com/in/haarfath/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://instagram.com/damarafrz" target="_blank"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+
+        </div>
+    </section> 
+    <footer class="footer">
+        <h3>AgriData<span style="color:var(--accent)">2024</span></h3>
+        <p>Project Analisis Data Agribisnis & Geospasial</p>
+        <small>&copy; 2025 Dibuat oleh Tim AgriData. All rights reserved.</small>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
